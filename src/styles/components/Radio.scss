@@ -1,0 +1,169 @@
+@include b(radio) {
+    display: inline-flex;
+    align-items: center;
+    margin: 0;
+    cursor: pointer;
+
+    &:hover {
+        @include e(circle) {
+            border-color: scale-color($color-border, $lightness: -15%);
+        }
+
+        @include when(checked) {
+            @include e(circle) {
+                border-color: scale-color($color-primary, $lightness: -5%);
+
+                &:after {
+                    background-color: scale-color(
+                        $color-primary,
+                        $lightness: -5%
+                    );
+                    transform: scale(1);
+                }
+            }
+        }
+    }
+
+    @include when(disabled) {
+        cursor: not-allowed !important;
+        color: scale-color($color-element-text, $lightness: 75%);
+
+        @include e(circle) {
+            cursor: not-allowed !important;
+            border-color: scale-color($color-border, $lightness: 50%);
+        }
+
+        @include when(checked) {
+            @include e(circle) {
+                border-color: scale-color($color-primary, $lightness: 75%);
+
+                &:after {
+                    background-color: scale-color(
+                        $color-primary,
+                        $lightness: 75%
+                    );
+                    transform: scale(1);
+                }
+            }
+        }
+    }
+
+    @include e(circle) {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        width: 1rem;
+        height: 1rem;
+        border: 1px solid $color-border;
+        border-radius: 2px;
+        margin-top: -2px;
+        border-radius: 50%;
+        white-space: nowrap;
+
+        input {
+            left: 0;
+            top: 0;
+            position: absolute;
+            opacity: 0;
+            z-index: -1;
+        }
+
+        &:after {
+            content: '';
+            width: 0.5rem;
+            height: 0.5rem;
+            background-color: $color-primary;
+            border-radius: 50%;
+            border-left: 0;
+            border-top: 0;
+            transform: scale(0);
+            transition: transform 0.1s ease-in;
+            transform-origin: center;
+        }
+    }
+
+    @include e(text) {
+        display: inline-flex;
+        padding-left: 0.5rem;
+    }
+
+    @include when(checked) {
+        @include e(circle) {
+            border-color: $color-primary;
+
+            &:after {
+                transform: rotate(45deg) scaleY(1);
+            }
+        }
+    }
+
+    @include m(circle-position-right) {
+        flex-direction: row-reverse;
+
+        @include e(circle) {
+            // order: 1;
+        }
+
+        @include e(text) {
+            padding-left: 0;
+            padding-right: 0.5rem;
+        }
+    }
+
+    @each $color, $value in $colors {
+        @include m(#{$color}) {
+            @include e(circle) {
+                border-color: $value;
+            }
+
+            &:hover {
+                @include e(circle) {
+                    border-color: scale-color($value, $lightness: -25%);
+                }
+
+                @include when(checked) {
+                    @include e(circle) {
+                        border-color: scale-color($value, $lightness: -5%);
+
+                        &:after {
+                            background-color: scale-color(
+                                $value,
+                                $lightness: -5%
+                            );
+                        }
+                    }
+                }
+            }
+
+            @include when(checked) {
+                @include e(circle) {
+                    border-color: $value;
+
+                    &:after {
+                        background-color: $value;
+                    }
+                }
+            }
+
+            @include when(disabled) {
+                @include e(circle) {
+                    border-color: scale-color($value, $lightness: 50%);
+                }
+
+                @include when(checked) {
+                    @include e(circle) {
+                        border-color: scale-color($value, $lightness: 75%);
+
+                        &:after {
+                            background-color: scale-color(
+                                $value,
+                                $lightness: 75%
+                            );
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

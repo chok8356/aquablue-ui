@@ -1,0 +1,53 @@
+@include b(radio-group) {
+    @include e(items) {
+        display: inline-flex;
+        flex-wrap: wrap;
+    }
+
+    @include e(label-text) {
+        font-size: rem(13);
+        color: $color-text-lighter;
+    }
+
+    @include e(feedback-text) {
+        font-size: rem(12);
+        color: $color-text-light;
+        margin-top: rem(4);
+    }
+
+    @include e(radio) {
+        margin-right: 1rem;
+
+        &:last-child {
+            margin-right: 0;
+        }
+    }
+
+    @include when(invalid) {
+        @include e(feedback-text) {
+            color: $color-danger !important;
+        }
+    }
+
+    @include when(vertical) {
+        @include e(items) {
+            flex-direction: column;
+        }
+
+        @include e(radio) {
+            margin-right: 0;
+
+            &:not(:last-child) {
+                margin-bottom: 0.5rem;
+            }
+        }
+    }
+
+    @include m(circle-position-right) {
+        @include when(vertical) {
+            @include e(checkbox) {
+                justify-content: space-between;
+            }
+        }
+    }
+}

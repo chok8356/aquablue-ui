@@ -1,0 +1,125 @@
+@include b(checkbox) {
+    display: inline-flex;
+    align-items: center;
+    margin: 0;
+    cursor: pointer;
+    &:hover {
+        @include e(checkmark) {
+            border-color: scale-color($color-border, $lightness: -15%);
+        }
+        @include when(checked) {
+            @include e(checkmark) {
+                background-color: scale-color($color-primary, $lightness: -5%);
+                border-color: scale-color($color-primary, $lightness: -5%);
+            }
+        }
+    }
+    @include when(disabled) {
+        cursor: not-allowed !important;
+        color: scale-color($color-element-text, $lightness: 75%);
+        @include e(checkmark) {
+            cursor: not-allowed !important;
+            border-color: scale-color($color-border, $lightness: 50%);
+        }
+        @include when(checked) {
+            @include e(checkmark) {
+                background-color: scale-color($color-primary, $lightness: 75%);
+                border-color: scale-color($color-primary, $lightness: 75%);
+            }
+        }
+    }
+
+    @include e(checkmark) {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        width: 1rem;
+        height: 1rem;
+        border: 1px solid $color-border;
+        border-radius: 2px;
+        margin-top: -2px;
+        white-space: nowrap;
+        input {
+            left: 0;
+            top: 0;
+            position: absolute;
+            opacity: 0;
+            z-index: -1;
+        }
+        &:after {
+            content: '';
+            width: 4px;
+            height: 8px;
+            margin-top: -1px;
+            border: 2px solid #fff;
+            border-left: 0;
+            border-top: 0;
+            transform: rotate(45deg) scaleY(0);
+            transition: transform 0.1s ease-in;
+            transform-origin: center;
+        }
+    }
+
+    @include e(text) {
+        display: inline-flex;
+        padding-left: 0.5rem;
+    }
+
+    @include when(checked) {
+        @include e(checkmark) {
+            background-color: $color-primary;
+            border-color: $color-primary;
+            &:after {
+                transform: rotate(45deg) scaleY(1);
+            }
+        }
+    }
+
+    @include m(box-position-right) {
+        flex-direction: row-reverse;
+        @include e(checkmark) {
+            // order: 1;
+        }
+        @include e(text) {
+            padding-left: 0;
+            padding-right: 0.5rem;
+        }
+    }
+
+    @each $color, $value in $colors {
+        @include m(#{$color}) {
+            @include e(checkmark) {
+                border-color: $value;
+            }
+            &:hover {
+                @include e(checkmark) {
+                    border-color: scale-color($value, $lightness: -15%);
+                }
+                @include when(checked) {
+                    @include e(checkmark) {
+                        background-color: scale-color($value, $lightness: -5%);
+                        border-color: scale-color($value, $lightness: -5%);
+                    }
+                }
+            }
+            @include when(checked) {
+                @include e(checkmark) {
+                    background-color: $value;
+                    border-color: $value;
+                }
+            }
+            @include when(disabled) {
+                @include e(checkmark) {
+                    border-color: scale-color($value, $lightness: 50%);
+                }
+                @include when(checked) {
+                    @include e(checkmark) {
+                        background-color: scale-color($value, $lightness: 75%);
+                        border-color: scale-color($value, $lightness: 75%);
+                    }
+                }
+            }
+        }
+    }
+}

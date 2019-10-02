@@ -1,0 +1,99 @@
+@include b(link) {
+    text-decoration: none;
+    color: $color-element-text;
+    position: relative;
+    font-size: $font-size-base;
+    &:after {
+        content: '';
+        display: none;
+        position: absolute;
+        left: 0;
+        right: 0;
+        height: 0;
+        bottom: 0;
+        border-bottom: 1px solid $color-primary;
+    }
+    &:hover {
+        color: $color-primary;
+        text-decoration: none;
+    }
+
+    @include when(disabled) {
+        cursor: not-allowed !important;
+        color: scale-color(
+            $color-element-text,
+            $lightness: 70%,
+            $saturation: -80%
+        );
+        &:hover {
+            text-decoration: none;
+            &:after {
+                display: none;
+            }
+        }
+        @include when(underline) {
+            &:hover {
+                &:after {
+                    display: none;
+                }
+            }
+        }
+    }
+
+    @include when(underline) {
+        &:hover {
+            &:after {
+                display: block;
+            }
+        }
+    }
+
+    @each $color, $value in $colors {
+        @include m(#{$color}) {
+            color: $value;
+            &:hover {
+                color: $value;
+                &:after {
+                    border-color: $value;
+                }
+            }
+        }
+    }
+
+    @each $size, $value in $sizes {
+        @include m(#{$size}) {
+            font-size: $font-size-base * $value;
+        }
+    }
+
+    @include e(content) {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    @include e(icon) {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        font-size: inherit;
+        &:first-child:nth-last-child(1) {
+            margin: 0;
+        }
+        i {
+            color: inherit;
+            font-size: inherit;
+        }
+        @include m(left) {
+            margin-right: rem(3);
+            margin-left: rem(-4);
+            color: inherit;
+        }
+        @include m(right) {
+            order: 1;
+            margin-left: rem(3);
+            margin-right: rem(-4);
+            color: inherit;
+        }
+    }
+}
