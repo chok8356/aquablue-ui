@@ -3,12 +3,12 @@
     bottom: 0;
     display: block;
     left: 0;
+    mask-image: radial-gradient(circle, white, black);
     overflow: hidden;
+    pointer-events: none;
     position: absolute;
     right: 0;
     top: 0;
-    pointer-events: none;
-    mask-image: radial-gradient(circle, white, black);
 
     @include e(ink) {
         background-clip: padding-box;

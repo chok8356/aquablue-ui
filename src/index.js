@@ -8,32 +8,32 @@ import Radio from './components/Radio/Radio.vue';
 import RadioGroup from './components/RadioGroup/RadioGroup.vue';
 
 const AquablueUI = {
-	Button,
-	ButtonGroup,
-	RippleInk,
-	Link,
-	Checkbox,
-	CheckboxGroup,
-	Radio,
-	RadioGroup,
+    Button,
+    ButtonGroup,
+    RippleInk,
+    Link,
+    Checkbox,
+    CheckboxGroup,
+    Radio,
+    RadioGroup,
 };
 
 function install(Vue, config = { size: 'md' }) {
-	Object.keys(AquablueUI).forEach(key => {
-		const Component = AquablueUI[key];
-		Vue.component(Component.name, Component);
-	});
+    Object.keys(AquablueUI).forEach(key => {
+        const Component = AquablueUI[key];
+        Vue.component(Component.name, Component);
+    });
 
-	Vue.prototype.$ELEMENT = {
-		size: config.size || '',
-	};
+    Vue.prototype.$ELEMENT = {
+        size: config.size || '',
+    };
 }
 
 if (typeof window !== 'undefined' && window.Vue) {
-	install(window.Vue);
+    install(window.Vue);
 }
 
 export default {
-	install,
-	AquablueUI,
+    install,
+    AquablueUI,
 };

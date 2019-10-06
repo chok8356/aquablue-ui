@@ -1,41 +1,40 @@
 {
-	"name": "aquablue-ui",
-	"version": "0.1.0",
-	"private": true,
-	"scripts": {
-		"serve": "vue-cli-service serve --open docs-src/main.js",
-		"build": "vue-cli-service build --no-clean --dest docs/ docs-src/main.js",
-		"build-bundle": "vue-cli-service build --target lib --name aquablue-ui --no-clean --dest dist/ ./src/index.js",
-		"lint": "vue-cli-service lint",
-		"test:unit": "vue-cli-service test:unit"
-	},
-	"main": "./dist/aquablue-ui.common.js",
-	"files": [
-		"dist/*",
-		"src/*",
-		"public/*",
-		"*.json",
-		"*.js"
-	],
-	"dependencies": {
-		"core-js": "^2.6.5",
-		"vue": "^2.6.10",
-		"vue-router": "^3.0.3",
-		"vuex": "^3.0.1"
-	},
-	"devDependencies": {
-		"@vue/cli-plugin-babel": "^3.11.0",
-		"@vue/cli-plugin-eslint": "^3.11.0",
-		"@vue/cli-plugin-unit-mocha": "^3.11.0",
-		"@vue/cli-service": "^3.11.0",
-		"@vue/test-utils": "1.0.0-beta.29",
-		"babel-eslint": "^10.0.1",
-		"bootstrap": "^4.3.1",
-		"chai": "^4.1.2",
-		"eslint": "^5.16.0",
-		"eslint-plugin-vue": "^5.0.0",
-		"sass": "^1.18.0",
-		"sass-loader": "^7.1.0",
-		"vue-template-compiler": "^2.6.10"
-	}
+    "name": "aquablue-ui",
+    "version": "0.0.1",
+    "private": true,
+    "scripts": {
+        "serve": "vue-cli-service serve --open docs-src/main.js",
+        "build": "vue-cli-service build --no-clean --dest docs/ docs-src/main.js",
+        "build-bundle": "vue-cli-service build --target lib --name aquablue-ui --no-clean --dest dist/ ./src/index.js",
+        "lint": "vue-cli-service lint",
+        "test:unit": "vue-cli-service test:unit"
+    },
+    "main": "./dist/aquablue-ui.common.js",
+    "files": [
+        "dist/*",
+        "src/*",
+        "*.json",
+        "*.js"
+    ],
+    "dependencies": {
+        "core-js": "^2.6.5",
+        "vue": "^2.6.10",
+        "vue-router": "^3.0.3",
+        "vuex": "^3.0.1"
+    },
+    "devDependencies": {
+        "@vue/cli-plugin-babel": "^3.11.0",
+        "@vue/cli-plugin-eslint": "^3.11.0",
+        "@vue/cli-plugin-unit-mocha": "^3.11.0",
+        "@vue/cli-service": "^3.11.0",
+        "@vue/test-utils": "1.0.0-beta.29",
+        "babel-eslint": "^10.0.1",
+        "bootstrap": "^4.3.1",
+        "chai": "^4.1.2",
+        "eslint": "^5.16.0",
+        "eslint-plugin-vue": "^5.0.0",
+        "sass": "^1.18.0",
+        "sass-loader": "^7.1.0",
+        "vue-template-compiler": "^2.6.10"
+    }
 }

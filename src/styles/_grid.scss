@@ -1,40 +1,40 @@
 %gutter {
+    align-items: flex-start;
     display: flex;
     flex-wrap: wrap;
-    align-items: flex-start;
     justify-content: flex-start;
     width: 100%;
 }
 
 .gutter {
-    @extend %gutter;
     & > * {
-        margin-top: 0;
         margin-left: 0;
+        margin-top: 0;
     }
+    @extend %gutter;
     @each $size, $value in $gutter {
         &-x-#{$size} {
-            @extend %gutter;
             margin-left: -#{$value};
             & > * {
                 margin-left: #{$value};
             }
+            @extend %gutter;
         }
         &-y-#{$size} {
-            @extend %gutter;
             margin-top: -#{$value};
             & > * {
                 margin-top: #{$value};
             }
+            @extend %gutter;
         }
         &-#{$size} {
-            @extend %gutter;
-            margin-top: -#{$value};
             margin-left: -#{$value};
+            margin-top: -#{$value};
             & > * {
-                margin-top: #{$value};
                 margin-left: #{$value};
+                margin-top: #{$value};
             }
+            @extend %gutter;
         }
     }
 }

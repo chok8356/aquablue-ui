@@ -1,0 +1,4 @@
+// Convert PX to REM
+@function rem($pixels) {
+    @return $pixels / $font-size + rem;
+}
