@@ -26,20 +26,19 @@
 export default {
     name: "AqRadio",
 
+    model: {
+        prop: "value",
+        event: "change"
+    },
+
     props: {
         name: String,
         label: String,
         tabindex: [String, Number],
         trueValue: {
-            type: [Number, String],
-            required: true
+            default: true
         },
         value: {
-            type: [Number, String],
-            required: true
-        },
-        checked: {
-            type: Boolean,
             default: false
         },
         disabled: Boolean,
@@ -64,30 +63,6 @@ export default {
             }
         }
     },
-    data() {
-        return {};
-    },
-    created() {
-        if (this.checked) {
-            this.$emit("input", this.trueValue);
-        }
-    },
-    methods: {
-        onChange(e) {
-            this.$emit("change", this.isChecked, e);
-        },
-        onClick(e) {
-            if (!this.disabled) {
-                this.$emit("input", this.trueValue, e);
-            }
-        },
-        onFocus(e) {
-            this.$emit("focus", e);
-        },
-        onBlur(e) {
-            this.$emit("blur", e);
-        }
-    },
     computed: {
         classes() {
             return [
@@ -100,9 +75,32 @@ export default {
             ];
         },
         isChecked() {
-            return (
-                String(this.value).length > 0 && this.value == this.trueValue
-            );
+            // return (
+            //     String(this.value).length > 0 &&
+            //     (this.value == this.trueValue || this.value == this.label)
+            // );
+            if (this.value instanceof Array) {
+                return this.value.includes(this.label);
+            }
+            return this.value === this.trueValue || this.value === this.label;
+        }
+    },
+    methods: {
+        onChange(e) {
+            if (!this.disabled && this.label) {
+                this.$emit("change", this.label, e);
+            } else if (!this.disabled) {
+                this.$emit("change", this.trueValue, e);
+            }
+        },
+        onClick(e) {
+            this.$emit("click", e);
+        },
+        onFocus(e) {
+            this.$emit("focus", e);
+        },
+        onBlur(e) {
+            this.$emit("blur", e);
         }
     }
 };

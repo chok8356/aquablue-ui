@@ -9,19 +9,17 @@
         </div>
         <div class="aq-checkbox-group__items">
             <aq-checkbox v-for="(option, index) in options"
-                v-model="checkboxValues[index]"
                 class="aq-checkbox-group__checkbox"
                 :box-position="boxPosition"
-                :checked="isOptionCheckedByDefault(option)"
-                :disabled="disabled || option[keys.disabled]"
-                :id="option[keys.id]"
-                :key="option[keys.id]"
-                :name="name || option[keys.name]"
+                :disabled="option.disabled || disabled"
+                :key="index"
+                :label="option.label || option"
+                :name="option.name || name"
                 :type="type"
+                :value.sync="value"
                 @blur="onBlur"
-                @change="onChange(arguments, option)"
+                @change="onChange"
                 @focus="onFocus">
-                {{ option[keys.label] || option }}
             </aq-checkbox>
         </div>
         <div v-if="hasFeedback"
@@ -47,28 +45,16 @@
 export default {
     name: "AqCheckboxGroup",
 
+    model: {
+        prop: "value",
+        event: "change"
+    },
+
     props: {
         name: String,
         options: {
             type: Array,
             required: true
-        },
-        value: {
-            type: Array,
-            required: true
-        },
-        keys: {
-            type: Object,
-            default() {
-                return {
-                    id: "id",
-                    name: "name",
-                    class: "class",
-                    label: "label",
-                    value: "value",
-                    disabled: "disabled"
-                };
-            }
         },
         boxPosition: {
             type: String,
@@ -77,6 +63,12 @@ export default {
         vertical: {
             type: Boolean,
             default: false
+        },
+        value: {
+            type: Array,
+            default() {
+                return [];
+            }
         },
         help: String,
         error: String,
@@ -105,12 +97,6 @@ export default {
             }
         }
     },
-    data: function() {
-        return {
-            checkboxValues: [],
-            initialValue: JSON.parse(JSON.stringify(this.value))
-        };
-    },
     computed: {
         classes() {
             return [
@@ -135,16 +121,18 @@ export default {
             return Boolean(this.help) || Boolean(this.$slots.help);
         }
     },
-    created() {
-        this.options.forEach((option, index) => {
-            this.checkboxValues[index] = this.isOptionCheckedByDefault(option);
-        });
+    mounted: function() {
+        this.isCheckedByDefault(this.options);
     },
     methods: {
-        isOptionCheckedByDefault(option) {
-            return this.initialValue.includes(
-                option[this.keys.value] || option
-            );
+        isCheckedByDefault(options) {
+            for (var option in options) {
+                if (options[option] instanceof Object) {
+                    if (options[option].checked === true) {
+                        this.value.push(options[option].label);
+                    }
+                }
+            }
         },
         onBlur(e) {
             this.$emit("blur", e);
@@ -152,19 +140,8 @@ export default {
         onFocus(e) {
             this.$emit("focus", e);
         },
-        onChange(e, option) {
-            let value = [];
-            const optionValue = option[this.keys.value] || option;
-
-            if (this.value.includes(optionValue)) {
-                this.value.splice(this.value.indexOf(optionValue), 1);
-                value = this.value;
-            } else {
-                value = this.value.concat(optionValue);
-            }
-
-            this.$emit("input", value);
-            this.$emit("change", value, e);
+        onChange(e) {
+            this.$emit("change", e);
         }
     }
 };

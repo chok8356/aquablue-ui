@@ -6,11 +6,11 @@
                 type="checkbox"
                 aria-hidden="true"
                 ref="input"
-                :checked.prop="isChecked"
+                :checked="isChecked"
                 :disabled="disabled"
                 :name="name"
                 :tabindex="tabindex"
-                :value="value"
+                :value="label"
                 @blur="onBlur"
                 @change="onChange"
                 @click="onClick"
@@ -27,6 +27,11 @@
 export default {
     name: "AqCheckbox",
 
+    model: {
+        prop: "value",
+        event: "change"
+    },
+
     props: {
         name: String,
         label: String,
@@ -38,10 +43,6 @@ export default {
             default: false
         },
         value: {
-            required: true
-        },
-        checked: {
-            type: Boolean,
             default: false
         },
         disabled: Boolean,
@@ -66,11 +67,7 @@ export default {
             }
         }
     },
-    data() {
-        return {
-            isChecked: this.value || this.checked
-        };
-    },
+
     computed: {
         classes() {
             return [
@@ -81,29 +78,32 @@ export default {
                 },
                 `aq-checkbox--box-position-${this.boxPosition}`
             ];
+        },
+        isChecked() {
+            if (this.value instanceof Array) {
+                return this.value.includes(this.label);
+            }
+            return this.value === this.trueValue;
         }
-    },
-    watch: {
-        value() {
-            this.isChecked = this.value;
-        }
-    },
-    created() {
-        this.$emit("input", this.isChecked ? this.trueValue : this.falseValue);
     },
     methods: {
         onChange(e) {
-            const isChecked = e.target.checked;
-            if (!this.disabled) {
-                this.$emit(
-                    "input",
-                    isChecked ? this.trueValue : this.falseValue,
-                    e
-                );
+            let isChecked = e.target.checked;
+
+            if (this.value instanceof Array) {
+                let newValue = [...this.value];
+
+                if (isChecked) {
+                    newValue.push(this.label);
+                } else {
+                    newValue.splice(newValue.indexOf(this.label), 1);
+                }
+
+                this.$emit("change", newValue);
+            } else {
                 this.$emit(
                     "change",
-                    isChecked ? this.trueValue : this.falseValue,
-                    e
+                    isChecked ? this.trueValue : this.falseValue
                 );
             }
         },

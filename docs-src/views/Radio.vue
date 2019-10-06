@@ -6,8 +6,7 @@
             </h2>
             <div class="gutter-3">
                 <div>
-                    <aq-radio v-model="check"
-                        true-value="1">
+                    <aq-radio v-model="check">
                         Radio
                     </aq-radio>
                     <div>
@@ -16,7 +15,6 @@
                 </div>
                 <div>
                     <aq-radio v-model="check2"
-                        true-value="1"
                         checked>
                         Radio
                     </aq-radio>
@@ -32,17 +30,10 @@
                 Type
             </h2>
             <div class="gutter-3">
-                <template v-for="n in [
-            'primary',
-            'success',
-            'error',
-            'warning',
-            'info'
-          ]">
+                <template v-for="n in ['primary','success','error','warning','info']">
                     <div :key="n">
                         <aq-radio v-model="check"
-                            :type="n"
-                            true-value="1">
+                            :type="n">
                             Radio
                         </aq-radio>
                         <div>
@@ -60,8 +51,7 @@
             <div class="gutter-3">
                 <div>
                     <aq-radio v-model="check"
-                        disabled
-                        true-value="1">
+                        disabled>
                         Radio
                     </aq-radio>
                     <div>
@@ -70,8 +60,7 @@
                 </div>
                 <div>
                     <aq-radio v-model="check2"
-                        disabled
-                        true-value="1">
+                        disabled>
                         Radio
                     </aq-radio>
                     <div>
@@ -87,8 +76,7 @@
             </h2>
             <div class="gutter-3">
                 <div>
-                    <aq-radio v-model="check"
-                        true-value="1">
+                    <aq-radio v-model="check">
                         Radio
                     </aq-radio>
                     <div>
@@ -97,8 +85,7 @@
                 </div>
                 <div>
                     <aq-radio v-model="check2"
-                        circle-position="right"
-                        true-value="1">
+                        circle-position="right">
                         Radio
                     </aq-radio>
                     <div>
@@ -137,6 +124,9 @@
                     vertical
                     circle-position="right"></aq-radio-group>
             </div>
+            <div>
+                <code>{{ group2 }}</code>
+            </div>
         </div>
 
         <div class="content__block">
@@ -148,7 +138,7 @@
                 :options="options">
                 Favourite Colours
                 <template #error="">
-                    Select 1 color
+                    Select color
                 </template>
                 <template #help="">
                     Choose you favourite colours
@@ -162,30 +152,24 @@
 export default {
     data: function() {
         return {
-            check: 0,
-            check2: 1,
+            check: false,
+            check2: true,
             group1: "Blue",
-            group2: "",
-            optionsValues: [],
+            group2: "Red",
+            optionsValues: "",
             options: [
                 {
-                    id: "1",
                     name: "color",
                     label: "Red",
-                    value: "red",
                     disabled: true
                 },
                 {
-                    id: "2",
                     name: "color",
-                    label: "Green",
-                    value: "green"
+                    label: "Green"
                 },
                 {
-                    id: "3",
                     name: "color",
-                    label: "Blue",
-                    value: "blue"
+                    label: "Blue"
                 }
             ]
         };

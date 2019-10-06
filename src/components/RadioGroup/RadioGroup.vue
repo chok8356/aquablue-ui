@@ -8,20 +8,18 @@
             <slot></slot>
         </div>
         <div class="aq-radio-group__items">
-            <aq-radio v-for="option in options"
-                v-model="selectedOptionValue"
+            <aq-radio v-for="(option, index) in options"
                 class="aq-radio-group__radio"
-                :checked="isOptionCheckedByDefault(option)"
                 :circle-position="circlePosition"
-                :disabled="option[keys.disabled]"
-                :id="option[keys.id]"
-                :key="option[keys.id]"
-                :name="option[keys.name]"
-                :true-value="option[keys.value] || option"
+                :disabled="option.disabled || disabled"
+                :key="index"
+                :label="option.label || option"
+                :name="option.name || option"
                 :type="type"
+                :value.sync="value"
                 @blur="onBlur"
+                @change="onChange"
                 @focus="onFocus">
-                {{ option[keys.label] || option }}
             </aq-radio>
         </div>
         <div v-if="hasFeedback"
@@ -47,29 +45,18 @@
 export default {
     name: "AqRadioGroup",
 
+    model: {
+        prop: "value",
+        event: "change"
+    },
+
     props: {
         name: String,
         options: {
             type: Array,
             required: true
         },
-        value: {
-            type: [Number, String],
-            required: true
-        },
-        keys: {
-            type: Object,
-            default() {
-                return {
-                    id: "id",
-                    class: "class",
-                    label: "label",
-                    value: "value",
-                    checked: "checked",
-                    disabled: "disabled"
-                };
-            }
-        },
+
         circlePosition: {
             type: String,
             default: "left"
@@ -77,6 +64,9 @@ export default {
         vertical: {
             type: Boolean,
             default: false
+        },
+        value: {
+            type: String
         },
         help: String,
         error: String,
@@ -105,12 +95,6 @@ export default {
             }
         }
     },
-    data: function() {
-        return {
-            initialValue: this.value,
-            selectedOptionValue: this.value
-        };
-    },
     computed: {
         classes() {
             return [
@@ -135,31 +119,27 @@ export default {
             return Boolean(this.help) || Boolean(this.$slots.help);
         }
     },
-    watch: {
-        selectedOptionValue() {
-            this.$emit("input", this.selectedOptionValue);
-            this.$emit("change", this.selectedOptionValue);
-        },
-        value() {
-            this.selectedOptionValue = this.value;
-        }
-    },
-    created() {
-        this.$emit("input", this.initialValue);
+    mounted: function() {
+        this.isCheckedByDefault(this.options);
     },
     methods: {
-        isOptionCheckedByDefault(option) {
-            return (
-                this.initialValue == option[this.keys.value] ||
-                this.initialValue == option ||
-                option[this.keys.checked]
-            );
+        isCheckedByDefault(options) {
+            for (var option in options) {
+                if (options[option] instanceof Object) {
+                    if (options[option].checked === true) {
+                        this.$emit("change", options[option].label);
+                    }
+                }
+            }
         },
         onBlur(e) {
             this.$emit("blur", e);
         },
         onFocus(e) {
             this.$emit("focus", e);
+        },
+        onChange(e) {
+            this.$emit("change", e);
         }
     }
 };

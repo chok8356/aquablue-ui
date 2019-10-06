@@ -156,23 +156,19 @@ export default {
             optionsValues: [],
             options: [
                 {
-                    id: "1",
                     name: "color",
                     label: "Red",
-                    value: "red",
+                    checked: true,
                     disabled: true
                 },
                 {
-                    id: "2",
                     name: "color",
                     label: "Green",
-                    value: "green"
+                    disabled: true
                 },
                 {
-                    id: "3",
                     name: "color",
-                    label: "Blue",
-                    value: "blue"
+                    label: "Blue"
                 }
             ]
         };
