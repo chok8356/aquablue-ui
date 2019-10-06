@@ -1,8 +1,8 @@
 <template>
     <div class="aq-checkbox-group"
+        :class="classes"
         role="group"
-        aria-label="checkbox-group"
-        :class="classes">
+        aria-label="checkbox-group">
         <div v-if="this.$slots.default"
             class="aq-checkbox-group__label-text">
             <slot></slot>

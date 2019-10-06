@@ -1,8 +1,8 @@
 <template>
     <div class="aq-radio-group"
+        :class="classes"
         role="group"
-        aria-label="radio-group"
-        :class="classes">
+        aria-label="radio-group">
         <div v-if="this.$slots.default"
             class="aq-radio-group__label-text">
             <slot></slot>
