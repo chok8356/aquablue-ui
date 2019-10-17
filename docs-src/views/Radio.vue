@@ -116,13 +116,13 @@
             </h2>
             <div class="gutter-x-5">
                 <aq-radio-group v-model="group2"
-                    :options="['Red', 'Blue', 'Green']"
-                    vertical></aq-radio-group>
+                    vertical
+                    :options="['Red', 'Blue', 'Green']"></aq-radio-group>
 
                 <aq-radio-group v-model="group2"
-                    :options="['Red', 'Blue', 'Green']"
+                    circle-position="right"
                     vertical
-                    circle-position="right"></aq-radio-group>
+                    :options="['Red', 'Blue', 'Green']"></aq-radio-group>
             </div>
             <div>
                 <code>{{ group2 }}</code>

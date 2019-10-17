@@ -1,7 +1,7 @@
 <template>
-    <a class="aq-link"
+    <a :href="disabled ? 'javascript:void(0)' : href"
+        class="aq-link"
         :class="classes"
-        :href="disabled ? 'javascript:void(0)' : href"
         @click="onClick">
         <div class="aq-link__content">
             <div v-if="icon || $slots.icon"

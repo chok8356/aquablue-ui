@@ -111,13 +111,13 @@
             </h2>
             <div class="gutter-x-5">
                 <aq-checkbox-group v-model="group2"
-                    :options="['Red', 'Blue', 'Green']"
-                    vertical></aq-checkbox-group>
+                    vertical
+                    :options="['Red', 'Blue', 'Green']"></aq-checkbox-group>
 
                 <aq-checkbox-group v-model="group2"
-                    :options="['Red', 'Blue', 'Green']"
+                    box-position="right"
                     vertical
-                    box-position="right"></aq-checkbox-group>
+                    :options="['Red', 'Blue', 'Green']"></aq-checkbox-group>
             </div>
             <div>
                 <code>{{ group2 }}</code>

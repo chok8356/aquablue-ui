@@ -16,9 +16,9 @@
             <div class="gutter-3 mb-3">
                 <aq-button light="">Button</aq-button>
                 <template v-for="n in ['primary','success','error','warning','info']">
-                    <aq-button :key="n"
-                        :type="n"
-                        light>Button</aq-button>
+                    <aq-button light
+                        :key="n"
+                        :type="n">Button</aq-button>
                 </template>
                 <aq-button icon="feather icon-download"
                     light></aq-button>
@@ -30,9 +30,9 @@
             <div class="gutter-3 mb-3">
                 <aq-button text="">Button</aq-button>
                 <template v-for="n in ['primary','success','error','warning','info']">
-                    <aq-button :key="n"
-                        :type="n"
-                        text>Button</aq-button>
+                    <aq-button text
+                        :key="n"
+                        :type="n">Button</aq-button>
                 </template>
                 <aq-button icon="feather icon-download"
                     text></aq-button>
@@ -44,9 +44,9 @@
             <div class="gutter-3 mb-3">
                 <aq-button round="">Button</aq-button>
                 <template v-for="n in ['primary','success','error','warning','info']">
-                    <aq-button :key="n"
-                        :type="n"
-                        round>Button</aq-button>
+                    <aq-button round
+                        :key="n"
+                        :type="n">Button</aq-button>
                 </template>
                 <aq-button icon="feather icon-download"
                     round></aq-button>
@@ -61,10 +61,10 @@
                 <aq-button circle
                     icon="feather icon-download"></aq-button>
                 <template v-for="n in ['primary','success','error','warning','info']">
-                    <aq-button :key="n"
-                        :type="n"
-                        circle
-                        icon="feather icon-download"></aq-button>
+                    <aq-button circle
+                        icon="feather icon-download"
+                        :key="n"
+                        :type="n"></aq-button>
                 </template>
             </div>
         </div>
@@ -74,9 +74,9 @@
             <div class="gutter-3">
                 <aq-button disabled="">Button</aq-button>
                 <template v-for="n in ['primary','success','error','warning','info']">
-                    <aq-button :key="n"
-                        :type="n"
-                        disabled>Button</aq-button>
+                    <aq-button disabled
+                        :key="n"
+                        :type="n">Button</aq-button>
                 </template>
                 <aq-button disabled
                     icon="feather icon-download"></aq-button>
@@ -106,16 +106,16 @@
             <h2 class="mb-3">Link</h2>
             <div class="gutter-3">
                 <aq-button href="#">Open</aq-button>
-                <aq-button type="primary"
-                    href="#"
+                <aq-button href="#"
+                    type="primary"
                     icon="feather icon-download"
                     icon-right>Download</aq-button>
-                <aq-button type="error"
-                    href="#"
+                <aq-button href="#"
+                    type="error"
                     icon="feather icon-download"
                     light>Download</aq-button>
-                <aq-button type="success"
-                    href="#"
+                <aq-button href="#"
+                    type="success"
                     icon="feather icon-download"
                     text>Download</aq-button>
             </div>
@@ -131,10 +131,10 @@
             </div>
             <div class="gutter-3 align-items-center">
                 <template v-for="n in ['xs', 'sm', 'md', 'lg']">
-                    <aq-button :key="n"
-                        :size="n"
-                        circle
-                        icon="feather icon-download"></aq-button>
+                    <aq-button circle
+                        icon="feather icon-download"
+                        :key="n"
+                        :size="n"></aq-button>
                 </template>
             </div>
         </div>

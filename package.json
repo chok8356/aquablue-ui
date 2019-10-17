@@ -1,7 +1,6 @@
 {
     "name": "aquablue-ui",
-    "version": "0.0.1",
-    "private": true,
+    "version": "0.1.0",
     "scripts": {
         "serve": "vue-cli-service serve --open docs-src/main.js",
         "build": "vue-cli-service build --no-clean --dest docs/ docs-src/main.js",

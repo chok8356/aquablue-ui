@@ -8,8 +8,8 @@
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                 Maxime, distinctio! Quidem eaque labore eos ipsam a aliquam,
                 eius. Distinctio quo reprehenderit,
-                <aq-link type="primary"
-                    href="#">
+                <aq-link href="#"
+                    type="primary">
                     nostrum
                 </aq-link>
                 commodi quod assumenda consequatur officia placeat sit fugit

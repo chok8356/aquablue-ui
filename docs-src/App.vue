@@ -6,8 +6,8 @@
                 <span class="logo__text">Aquablue UI</span>
             </div>
             <div class="login">
-                <a class="login__link"
-                    href="https://github.com/chok8356/aquablue-ui"
+                <a href="https://github.com/chok8356/aquablue-ui"
+                    class="login__link"
                     target="_blank">GitHub</a>
             </div>
         </header>
