@@ -137,10 +137,10 @@
                 :invalid="optionsValues.length <= 0"
                 :options="options">
                 Favourite Colours
-                <template #error="">
+                <template #error>
                     Select color
                 </template>
-                <template #help="">
+                <template #help>
                     Choose you favourite colours
                 </template>
             </aq-radio-group>

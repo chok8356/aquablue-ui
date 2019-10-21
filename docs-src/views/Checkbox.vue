@@ -132,10 +132,10 @@
                 :invalid="optionsValues.length < 2"
                 :options="options">
                 Favourite Colours
-                <template #error="">
+                <template #error>
                     Select at least 2 colors
                 </template>
-                <template #help="">
+                <template #help>
                     Choose you favourite colours
                 </template>
             </aq-checkbox-group>

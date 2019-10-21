@@ -1,0 +1,31 @@
+@media (max-width: 1199px) {
+}
+
+@media (max-width: 991px) {
+    .aside {
+        transform: translateX(-100%);
+        z-index: 1;
+        &.is-active {
+            transform: translate(0);
+        }
+    }
+    .content {
+        margin-left: 2rem;
+    }
+
+    .logo__menu-btn {
+        display: inline-flex;
+    }
+}
+
+@media (max-width: 768px) {
+}
+
+@media (max-width: 576px) {
+    .aside {
+        width: 75%;
+    }
+}
+
+@media (max-width: 425px) {
+}

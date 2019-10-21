@@ -3,7 +3,13 @@
         id="app">
         <header class="header">
             <div class="logo">
-                <span class="logo__text">Aquablue UI</span>
+                <a href="/"
+                    class="logo__text">Aquablue UI</a>
+                <div class="logo__menu-btn"
+                    ref="menuBtn"
+                    @click="toggleMenu()">
+                    <span></span>
+                </div>
             </div>
             <div class="login">
                 <a href="https://github.com/chok8356/aquablue-ui"
@@ -12,7 +18,8 @@
             </div>
         </header>
 
-        <aside class="aside">
+        <aside class="aside"
+            ref="aside">
             <div class="menu">
                 <router-link class="menu__item"
                     :to="{ name: 'Button' }">
@@ -37,7 +44,8 @@
             </div>
         </aside>
 
-        <main class="content">
+        <main class="content"
+            ref="main">
             <template v-if=" this.$route.meta.title">
                 <h1 class="page-title">
                     {{ this.$route.meta.title }}
@@ -55,14 +63,29 @@
 // import 'bootstrap/dist/css/bootstrap.css';
 
 export default {
+    name: "App",
     computed: {
         documentTitle() {
             return this.$route.meta.title + " |  Aquablue UI";
+        },
+        getWidth() {
+            return this.$el.clientWidth;
+        }
+    },
+    methods: {
+        toggleMenu() {
+            this.$refs.menuBtn.classList.toggle("is-active");
+            this.$refs.aside.classList.toggle("is-active");
+        },
+        closeMenu() {
+            this.$refs.menuBtn.classList.remove("is-active");
+            this.$refs.aside.classList.remove("is-active");
         }
     },
     watch: {
         $route() {
             document.title = this.documentTitle;
+            this.closeMenu();
         }
     },
     mounted() {

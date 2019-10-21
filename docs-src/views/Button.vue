@@ -14,7 +14,7 @@
             </div>
 
             <div class="gutter-3 mb-3">
-                <aq-button light="">Button</aq-button>
+                <aq-button light>Button</aq-button>
                 <template v-for="n in ['primary','success','error','warning','info']">
                     <aq-button light
                         :key="n"
@@ -28,7 +28,7 @@
             </div>
 
             <div class="gutter-3 mb-3">
-                <aq-button text="">Button</aq-button>
+                <aq-button text>Button</aq-button>
                 <template v-for="n in ['primary','success','error','warning','info']">
                     <aq-button text
                         :key="n"
@@ -42,7 +42,7 @@
             </div>
 
             <div class="gutter-3 mb-3">
-                <aq-button round="">Button</aq-button>
+                <aq-button round>Button</aq-button>
                 <template v-for="n in ['primary','success','error','warning','info']">
                     <aq-button round
                         :key="n"
@@ -72,7 +72,7 @@
         <div class="content__block">
             <h2 class="mb-3">Disabled</h2>
             <div class="gutter-3">
-                <aq-button disabled="">Button</aq-button>
+                <aq-button disabled>Button</aq-button>
                 <template v-for="n in ['primary','success','error','warning','info']">
                     <aq-button disabled
                         :key="n"
@@ -93,12 +93,12 @@
                 <aq-button icon="feather icon-download"
                     icon-right>Button</aq-button>
                 <aq-button>
-                    <template #icon="">
+                    <template #icon>
                         <i class="feather icon-plus"></i>
                     </template>
                     Button
                 </aq-button>
-                <aq-button loading="">Button</aq-button>
+                <aq-button loading>Button</aq-button>
             </div>
         </div>
 

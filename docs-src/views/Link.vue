@@ -58,7 +58,7 @@
                     Button
                 </aq-link>
                 <aq-link href="#">
-                    <template #icon="">
+                    <template #icon>
                         <i class="feather icon-plus"></i>
                     </template>
                     Button
