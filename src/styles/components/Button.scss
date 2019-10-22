@@ -9,11 +9,11 @@
     font-size: $font-size-base;
     justify-content: center;
     outline: none !important;
-    padding: 0.5rem 1.25rem;
+    padding: 0.75rem 1.25rem;
     position: relative;
     text-align: center;
     text-decoration: none !important;
-    white-space: nowrap;
+    line-height: 1;
 
     &:hover {
         background-color: scale-color(
@@ -162,7 +162,7 @@
 
     @include when(circle) {
         border-radius: 50%;
-        padding: 0.5rem 0.75rem;
+        padding: 0.75rem;
     }
 
     @include e(content) {
@@ -215,10 +215,10 @@
     @each $size, $value in $sizes {
         @include m(#{$size}) {
             font-size: $font-size-base * $value;
-            padding: 0.5rem * $value 1.25rem * $value;
+            padding: 0.75rem * $value 1.25rem * $value;
 
             @include when(circle) {
-                padding: 0.5rem * $value 0.75rem * $value;
+                padding: 0.75rem * $value;
             }
 
             @include when(loading) {
