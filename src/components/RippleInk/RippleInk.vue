@@ -114,7 +114,7 @@ export default {
             this.triggerEl = this.$el.parentElement;
 
             if (!this.triggerEl) {
-                console.error("[UiRippleInk]: Trigger element not found.");
+                console.error("[AqRippleInk]: Trigger element not found.");
                 return;
             }
 

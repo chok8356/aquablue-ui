@@ -72,11 +72,11 @@
 </template>
 
 <script>
-import UiRippleInk from "./../RippleInk/RippleInk.vue";
+import AqRippleInk from "./../RippleInk/RippleInk.vue";
 export default {
     name: "AqButton",
     components: {
-        UiRippleInk
+        AqRippleInk
     },
 
     props: {
@@ -107,6 +107,7 @@ export default {
         },
         size: {
             type: String,
+            default: "md",
             validator: function(value) {
                 return ["xs", "sm", "md", "lg"].indexOf(value) !== -1;
             }
