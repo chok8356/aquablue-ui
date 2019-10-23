@@ -7,10 +7,11 @@
             <div v-if="icon || $slots.icon"
                 class="aq-link__icon"
                 :class="classesIcon">
-                <i v-if="icon"
-                    :class="icon"></i>
+                <aq-icon v-if="icon"
+                    :icon="icon"></aq-icon>
                 <slot name="icon"
-                    v-else-if="this.$slots.icon"></slot>
+                    v-else-if="this.$slots.icon">
+                </slot>
             </div>
             <span v-if="this.$slots.default"
                 class="aq-link__text">
@@ -21,8 +22,12 @@
 </template>
 
 <script>
+import AqIcon from "./../Icon/Icon.vue";
 export default {
     name: "AqLink",
+    components: {
+        AqIcon
+    },
 
     props: {
         disabled: Boolean,

@@ -49,11 +49,11 @@
             <h2>Icons</h2>
             <div class="gutter-3 align-items-center">
                 <aq-link href="#"
-                    icon="feather icon-check">
+                    icon="icon-check">
                     Button
                 </aq-link>
                 <aq-link href="#"
-                    icon="feather icon-check"
+                    icon="icon-check"
                     icon-right>
                     Button
                 </aq-link>

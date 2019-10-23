@@ -1,5 +1,10 @@
+import VueTestUtils from '@vue/test-utils';
 import { shallowMount } from '@vue/test-utils';
 import Button from '@/components/Button/Button.vue';
+
+VueTestUtils.config.mocks['$ELEMENT'] = {
+    size: 'md',
+};
 
 describe('Button Test', () => {
     it('Renders props.type', () => {

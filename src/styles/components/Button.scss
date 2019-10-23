@@ -172,19 +172,11 @@
     }
 
     @include e(icon) {
-        // display: inline-flex;
-        // align-items: center;
-        // justify-content: center;
-        font-size: inherit;
-
+        display: inline-flex;
+        width: auto;
+        height: auto;
         &:first-child:nth-last-child(1) {
             margin: 0;
-        }
-
-        i {
-            color: inherit;
-            display: inline-block;
-            font-size: inherit;
         }
 
         @include m(left) {
@@ -201,13 +193,8 @@
 
     @include when(loading) {
         @include e(icon) {
-            i {
+            & > * {
                 animation: loading 1.5s linear infinite;
-
-                svg {
-                    height: $font-size-base;
-                    width: $font-size-base;
-                }
             }
         }
     }
@@ -219,17 +206,6 @@
 
             @include when(circle) {
                 padding: 0.75rem * $value;
-            }
-
-            @include when(loading) {
-                @include e(icon) {
-                    i {
-                        svg {
-                            height: $font-size-base * $value;
-                            width: $font-size-base * $value;
-                        }
-                    }
-                }
             }
         }
     }

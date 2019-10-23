@@ -1,29 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width,initial-scale=1.0" />
-        <link href="<%= BASE_URL %>favicon.ico" rel="icon" />
-        <title>Aquablue UI</title>
-    </head>
-    <body>
-        <noscript>
-            <strong
-                >We're sorry but Aquablue UI doesn't work properly without
-                JavaScript enabled. Please enable it to continue.</strong
-            >
-        </noscript>
-        <div id="app"></div>
-        <!-- built files will be auto injected -->
-        <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
-        <link
-            type="text/css"
-            href="//at.alicdn.com/t/font_o5hd5vvqpoqiwwmi.css"
-            rel="stylesheet"
-        />
-        <script>
-            feather.replace();
-        </script>
-    </body>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible"
+        content="IE=edge" />
+    <meta name="viewport"
+        content="width=device-width,initial-scale=1.0" />
+    <link href="<%= BASE_URL %>favicon.ico"
+        rel="icon" />
+    <title>Aquablue UI</title>
+</head>
+
+<body>
+    <noscript>
+        <strong>We're sorry but Aquablue UI doesn't work properly without
+            JavaScript enabled. Please enable it to continue.</strong>
+    </noscript>
+    <div id="app"></div>
+    <!-- built files will be auto injected -->
+    <div id="svg-container"
+        style="display: none"></div>
+    <script>
+        !function () {
+            var xhr = new XMLHttpRequest();
+            xhr.open("GET", 'https://unpkg.com/feather-icons@4.24.1/dist/feather-sprite.svg');
+            xhr.onload = function () {
+                document.getElementById('svg-container').innerHTML = xhr.responseText;
+            }
+            xhr.send();
+        }();
+    </script>
+</body>
+
 </html>

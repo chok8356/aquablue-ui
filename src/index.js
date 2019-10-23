@@ -6,6 +6,7 @@ import Checkbox from './components/Checkbox/Checkbox.vue';
 import CheckboxGroup from './components/CheckboxGroup/CheckboxGroup.vue';
 import Radio from './components/Radio/Radio.vue';
 import RadioGroup from './components/RadioGroup/RadioGroup.vue';
+import Icon from './components/Icon/Icon.vue';
 
 const AquablueUI = {
     Button,
@@ -16,9 +17,10 @@ const AquablueUI = {
     CheckboxGroup,
     Radio,
     RadioGroup,
+    Icon,
 };
 
-function install(Vue, config = { size: 'md' }) {
+function install(Vue, config = { size: 'md', iconSet: 'feather' }) {
     Object.keys(AquablueUI).forEach(key => {
         const Component = AquablueUI[key];
         Vue.component(Component.name, Component);
@@ -27,6 +29,8 @@ function install(Vue, config = { size: 'md' }) {
     Vue.prototype.$ELEMENT = {
         size: config.size || '',
     };
+
+    Vue.prototype.$ICON_SET = config.iconSet || '';
 }
 
 if (typeof window !== 'undefined' && window.Vue) {

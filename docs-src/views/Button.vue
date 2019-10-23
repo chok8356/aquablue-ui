@@ -8,9 +8,9 @@
                     <aq-button :key="n"
                         :type="n">Button</aq-button>
                 </template>
-                <aq-button icon="feather icon-download"></aq-button>
+                <aq-button icon="icon-download"></aq-button>
                 <aq-button type="primary"
-                    icon="feather icon-download"></aq-button>
+                    icon="icon-download"></aq-button>
             </div>
 
             <div class="gutter-3 mb-3">
@@ -20,10 +20,10 @@
                         :key="n"
                         :type="n">Button</aq-button>
                 </template>
-                <aq-button icon="feather icon-download"
+                <aq-button icon="icon-download"
                     light></aq-button>
                 <aq-button type="primary"
-                    icon="feather icon-download"
+                    icon="icon-download"
                     light></aq-button>
             </div>
 
@@ -34,10 +34,10 @@
                         :key="n"
                         :type="n">Button</aq-button>
                 </template>
-                <aq-button icon="feather icon-download"
+                <aq-button icon="icon-download"
                     text></aq-button>
                 <aq-button type="primary"
-                    icon="feather icon-download"
+                    icon="icon-download"
                     text></aq-button>
             </div>
 
@@ -48,21 +48,21 @@
                         :key="n"
                         :type="n">Button</aq-button>
                 </template>
-                <aq-button icon="feather icon-download"
+                <aq-button icon="icon-download"
                     round></aq-button>
                 <aq-button type="primary"
-                    icon="feather icon-download"
+                    icon="icon-download"
                     round></aq-button>
             </div>
             <div class="gutter-3">
                 <aq-button circle
-                    icon="feather icon-download"
+                    icon="icon-download"
                     text></aq-button>
                 <aq-button circle
-                    icon="feather icon-download"></aq-button>
+                    icon="icon-download"></aq-button>
                 <template v-for="n in ['primary','success','error','warning','info']">
                     <aq-button circle
-                        icon="feather icon-download"
+                        icon="icon-download"
                         :key="n"
                         :type="n"></aq-button>
                 </template>
@@ -79,18 +79,18 @@
                         :type="n">Button</aq-button>
                 </template>
                 <aq-button disabled
-                    icon="feather icon-download"></aq-button>
+                    icon="icon-download"></aq-button>
                 <aq-button type="primary"
                     disabled
-                    icon="feather icon-download"></aq-button>
+                    icon="icon-download"></aq-button>
             </div>
         </div>
 
         <div class="content__block">
             <h2 class="mb-3">Icons</h2>
             <div class="gutter-3 align-items-center">
-                <aq-button icon="feather icon-download">Button</aq-button>
-                <aq-button icon="feather icon-download"
+                <aq-button icon="icon-download">Button</aq-button>
+                <aq-button icon="icon-download"
                     icon-right>Button</aq-button>
                 <aq-button>
                     <template #icon>
@@ -98,7 +98,15 @@
                     </template>
                     Button
                 </aq-button>
-                <aq-button loading>Button</aq-button>
+                <aq-button icon="icon-loader"
+                    loading>Button</aq-button>
+
+                <aq-button loading>Button witn SVG Icon
+                    <template #icon>
+                        <aq-icon icon="loader"
+                            svg></aq-icon>
+                    </template>
+                </aq-button>
             </div>
         </div>
 
@@ -108,15 +116,15 @@
                 <aq-button href="#">Open</aq-button>
                 <aq-button href="#"
                     type="primary"
-                    icon="feather icon-download"
+                    icon="icon-download"
                     icon-right>Download</aq-button>
                 <aq-button href="#"
                     type="error"
-                    icon="feather icon-download"
+                    icon="icon-download"
                     light>Download</aq-button>
                 <aq-button href="#"
                     type="success"
-                    icon="feather icon-download"
+                    icon="icon-download"
                     text>Download</aq-button>
             </div>
         </div>
@@ -132,7 +140,7 @@
             <div class="gutter-3 align-items-center">
                 <template v-for="n in ['xs', 'sm', 'md', 'lg']">
                     <aq-button circle
-                        icon="feather icon-download"
+                        icon="icon-download"
                         :key="n"
                         :size="n"></aq-button>
                 </template>
@@ -144,9 +152,9 @@
             <aq-button-group>
                 <aq-button type="primary">Open</aq-button>
                 <aq-button type="primary"
-                    icon="feather icon-edit">Edit</aq-button>
+                    icon="icon-edit">Edit</aq-button>
                 <aq-button type="primary"
-                    icon="feather icon-download"></aq-button>
+                    icon="icon-download"></aq-button>
             </aq-button-group>
         </div>
 
