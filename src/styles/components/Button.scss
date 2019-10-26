@@ -6,14 +6,13 @@
     color: $color-element-text;
     cursor: pointer;
     display: inline-flex;
-    font-size: $font-size-base;
+    font-size: 1rem;
     justify-content: center;
     outline: none !important;
     padding: 0.75rem 1.25rem;
     position: relative;
     text-align: center;
     text-decoration: none !important;
-    line-height: 1;
 
     &:hover {
         background-color: scale-color(
@@ -169,12 +168,18 @@
         align-items: center;
         display: inline-flex;
         justify-content: center;
+        line-height: 1;
+    }
+
+    @include e(text) {
+        line-height: inherit;
     }
 
     @include e(icon) {
         display: inline-flex;
-        width: auto;
         height: auto;
+        line-height: inherit;
+        width: auto;
         &:first-child:nth-last-child(1) {
             margin: 0;
         }
@@ -201,7 +206,7 @@
 
     @each $size, $value in $sizes {
         @include m(#{$size}) {
-            font-size: $font-size-base * $value;
+            font-size: 1rem * $value;
             padding: 0.75rem * $value 1.25rem * $value;
 
             @include when(circle) {

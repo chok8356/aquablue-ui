@@ -1,3 +1,19 @@
+[class^='aq-'] {
+    box-sizing: border-box;
+    line-height: normal;
+}
+
+.feather {
+    fill: none;
+    font-size: 1em;
+    height: 1em;
+    stroke: currentColor;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-width: 2;
+    width: 1em;
+}
+
 @import 'Button';
 @import 'ButtonGroup';
 @import 'RippleInk';
@@ -6,4 +22,5 @@
 @import 'CheckboxGroup';
 @import 'Radio';
 @import 'RadioGroup';
+@import 'TextBox';
 @import 'Icon';

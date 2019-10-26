@@ -6,13 +6,14 @@
 
     @include e(label-text) {
         color: $color-text-lighter;
-        font-size: rem(13);
+        font-size: 0.875rem;
+        margin-bottom: 0.25rem;
     }
 
     @include e(feedback-text) {
         color: $color-text-light;
-        font-size: rem(12);
-        margin-top: rem(4);
+        font-size: 0.75rem;
+        margin-top: 0.25rem;
     }
 
     @include e(radio) {

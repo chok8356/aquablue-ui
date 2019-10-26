@@ -1,3 +1,6 @@
-@import 'src/styles/imports';
+@import './variables';
+@import './utility/mixins';
+@import './utility/bem';
+@import './_grid';
 @import './app';
 @import './media';

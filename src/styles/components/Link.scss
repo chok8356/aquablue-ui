@@ -1,11 +1,13 @@
 @include b(link) {
+    align-items: center;
     color: $color-element-text;
-    font-size: $font-size-base;
+    display: inline-flex;
+    font-size: 1rem;
     position: relative;
     text-decoration: none;
     &:after {
         border-bottom: 1px solid $color-primary;
-        bottom: 0;
+        bottom: -2px;
         content: '';
         display: none;
         height: 0;
@@ -62,7 +64,7 @@
 
     @each $size, $value in $sizes {
         @include m(#{$size}) {
-            font-size: $font-size-base * $value;
+            font-size: 1rem * $value;
         }
     }
 
@@ -87,13 +89,11 @@
         }
         @include m(left) {
             color: inherit;
-            margin-left: rem(-4);
-            margin-right: rem(3);
+            margin-right: rem(2);
         }
         @include m(right) {
             color: inherit;
-            margin-left: rem(3);
-            margin-right: rem(-4);
+            margin-left: rem(2);
             order: 1;
         }
     }

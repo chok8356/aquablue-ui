@@ -1,0 +1,106 @@
+// Typography
+$font-family: 'Arial', sans-serif;
+$font-size: 16;
+
+// Colors
+$color-white: #ffffff;
+$color-black: #232323;
+$color-grey: #f9f9f9;
+
+$color-primary: #6190e8;
+$color-primary-light: scale-color($color-primary, $lightness: 5%);
+$color-primary-dark: scale-color($color-primary, $lightness: -5%);
+
+$color-success: #67c23a;
+$color-warning: #e6a23c;
+$color-danger: #f56c6c;
+$color-info: #909399;
+
+$color-separator: scale-color(
+    $color-primary,
+    $lightness: 70%,
+    $saturation: -80%
+);
+
+$color-primary-title: #444444;
+$color-text: scale-color($color-primary, $lightness: -40%, $saturation: -80%);
+$color-text-darker: scale-color(
+    $color-primary,
+    $lightness: -60%,
+    $saturation: -80%
+);
+$color-text-dark: scale-color(
+    $color-primary,
+    $lightness: -80%,
+    $saturation: -80%
+);
+$color-text-lighter: scale-color(
+    $color-primary,
+    $lightness: -10%,
+    $saturation: -80%
+);
+$color-text-light: scale-color(
+    $color-primary,
+    $lightness: 30%,
+    $saturation: -80%
+);
+
+$color-element-text: $color-text;
+$color-element-background: #eeeeee;
+
+$color-border: scale-color($color-primary, $lightness: 50%, $saturation: -80%);
+$color-border-light: scale-color(
+    $color-primary,
+    $lightness: -40%,
+    $saturation: -80%
+);
+
+$color-primary-gradient: linear-gradient(
+    90deg,
+    $color-primary-light 0%,
+    $color-primary-dark 100%
+);
+
+// Shadows
+// $shadow-block: 0 1px 15px rgba(0,0,0,.04), 0 1px 6px rgba(0,0,0,.04);
+$shadow-block: 0 4px 8px rgba(0, 30, 84, 0.12), 0 1px 3px rgba(0, 30, 84, 0.08);
+$shadow-block-active: 0 3px 30px rgba(0, 0, 0, 0.1),
+    0 3px 20px rgba(0, 0, 0, 0.1);
+$shadow-sidebar: 0 3px 30px rgba(0, 0, 0, 0.1), 0 3px 20px rgba(0, 0, 0, 0.1);
+$shadow-header: 0 1px 15px rgba(0, 0, 0, 0.04), 0 1px 6px rgba(0, 0, 0, 0.04);
+
+// Spaces
+$space-base: 1rem;
+$space-x-base: $space-base;
+$space-y-base: $space-base;
+$spaces: (
+    0: (
+        x: 0,
+        y: 0,
+    ),
+    1: (
+        x: $space-base * 0.25,
+        y: $space-base * 0.25,
+    ),
+    2: (
+        x: $space-base * 0.5,
+        y: $space-base * 0.5,
+    ),
+    3: (
+        x: $space-base,
+        y: $space-base,
+    ),
+    4: (
+        x: $space-base * 1.5,
+        y: $space-base * 1.5,
+    ),
+);
+
+$gutter: (
+    0: 0,
+    1: $space-base * 0.25,
+    2: $space-base * 0.5,
+    3: $space-base,
+    4: $space-base * 1.5,
+    5: $space-base * 2,
+);

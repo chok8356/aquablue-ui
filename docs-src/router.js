@@ -54,5 +54,12 @@ export default new Router({
                 import(/* webpackChunkName: "Radio" */ './views/Radio.vue'),
             meta: { title: 'Radio' },
         },
+        {
+            path: '/text-box',
+            name: 'TextBox',
+            component: () =>
+                import(/* webpackChunkName: "TextBox" */ './views/TextBox.vue'),
+            meta: { title: 'TextBox' },
+        },
     ],
 });

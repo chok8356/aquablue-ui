@@ -36,33 +36,38 @@
         display: inline-flex;
         height: 1rem;
         justify-content: center;
-        margin-top: -2px;
+        min-height: 1rem;
+        min-width: 1rem;
+        padding: 2px;
         position: relative;
-        white-space: nowrap;
         width: 1rem;
         input {
+            height: 1rem;
             left: 0;
+            margin: 0;
             opacity: 0;
             position: absolute;
             top: 0;
+            width: 1rem;
             z-index: -1;
         }
         &:after {
-            border: 2px solid #fff;
-            border-left: 0;
-            border-top: 0;
+            background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3E%3Cpath fill='%23FFFFFF' d='M6.564.75l-3.59 3.612-1.538-1.55L0 4.26 2.974 7.25 8 2.193z'/%3E%3C/svg%3E");
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: 100%;
             content: '';
-            height: 8px;
-            margin-top: -1px;
-            transform: rotate(45deg) scaleY(0);
+            height: 100%;
+            transform: scale(0);
             transform-origin: center;
             transition: transform 0.1s ease-in;
-            width: 4px;
+            width: 100%;
         }
     }
 
     @include e(text) {
         display: inline-flex;
+        font-size: 1rem;
         padding-left: 0.5rem;
     }
 
@@ -71,7 +76,7 @@
             background-color: $color-primary;
             border-color: $color-primary;
             &:after {
-                transform: rotate(45deg) scaleY(1);
+                transform: scale(1);
             }
         }
     }

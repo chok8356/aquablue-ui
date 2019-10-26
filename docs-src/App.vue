@@ -1,6 +1,5 @@
 <template>
-    <div class="aq-docs"
-        id="app">
+    <div id="app">
         <header class="header">
             <div class="logo">
                 <a href="/"
@@ -36,6 +35,10 @@
                 <router-link class="menu__item"
                     :to="{ name: 'Radio' }">
                     Radio
+                </router-link>
+                <router-link class="menu__item"
+                    :to="{ name: 'TextBox' }">
+                    TextBox
                 </router-link>
                 <router-link class="menu__item"
                     :to="{ name: 'Page' }">
