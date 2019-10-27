@@ -5,13 +5,13 @@
     }
 
     @include e(label-text) {
-        color: $color-text-lighter;
+        color: $color-label;
         font-size: 0.875rem;
         margin-bottom: 0.25rem;
     }
 
     @include e(feedback-text) {
-        color: $color-text-light;
+        color: $color-label-light;
         font-size: 0.75rem;
         margin-top: 0.25rem;
     }

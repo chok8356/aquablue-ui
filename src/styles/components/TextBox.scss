@@ -1,0 +1,92 @@
+@include b(textbox) {
+    display: inline-flex;
+
+    &:hover {
+        @include e(input) {
+            border-color: $color-border-hover;
+        }
+    }
+
+    %input {
+        border: 1px solid $color-border;
+        border-radius: $element-border-radius;
+        outline: none;
+        font-size: 1rem;
+        padding: calc(0.75rem - 1px) 1rem;
+        transition: border-color 0.2s ease-in-out;
+        &::placeholder {
+            font-size: inherit;
+            color: $color-label-light;
+        }
+    }
+
+    @include e(content) {
+        position: relative;
+    }
+
+    @include e(label) {
+        display: inline-flex;
+        margin: 0;
+    }
+
+    @include e(input) {
+        @extend %input;
+    }
+
+    @include e(textarea) {
+        @extend %input;
+    }
+
+    @include e(label-text) {
+        color: $color-label-light;
+        font-size: 1rem;
+        left: 1rem;
+        pointer-events: none;
+        position: absolute;
+        top: 0.75rem;
+        transition: all 0.2s ease-in-out;
+        transition-property: transform, top, background-color, font-size, color;
+
+        @include m(floating-label) {
+            background-color: $color-white;
+            color: $color-label;
+            font-size: 0.75rem;
+            top: 0;
+            transform: translateY(-50%);
+        }
+    }
+
+    @include when(active) {
+        @include e(input) {
+            border-color: scale-color($color-primary, $lightness: 20%);
+        }
+
+        @include e(textarea) {
+            border-color: scale-color($color-primary, $lightness: 20%);
+        }
+
+        @include e(label-text) {
+            color: $color-primary;
+        }
+    }
+
+    @each $size, $value in $sizes {
+        @include m(#{$size}) {
+            %input {
+                font-size: 1rem * $value;
+                padding: calc(0.75rem * #{$value} - 1px) 1rem * $value;
+            }
+
+            @include e(label-text) {
+                left: 1rem * $value;
+                font-size: 1rem * $value;
+                top: 0.75rem * $value;
+
+                @include m(floating-label) {
+                    top: 0;
+                    font-size: 0.75rem * $value;
+                }
+            }
+        }
+    }
+}

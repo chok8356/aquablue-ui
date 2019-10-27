@@ -1,6 +1,8 @@
 [class^='aq-'] {
     box-sizing: border-box;
-    line-height: normal;
+    line-height: initial;
+    font: 1rem 'Arial', sans-serif;
+    font-size: inherit;
 }
 
 .feather {

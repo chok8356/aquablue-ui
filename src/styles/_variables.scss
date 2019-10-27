@@ -21,41 +21,23 @@ $color-info: #909399;
 $color-separator: scale-color(
     $color-primary,
     $lightness: 70%,
-    $saturation: -80%
+    $saturation: -100%
 );
 
 $color-primary-title: #444444;
-$color-text: scale-color($color-primary, $lightness: -40%, $saturation: -80%);
-$color-text-darker: scale-color(
-    $color-primary,
-    $lightness: -60%,
-    $saturation: -80%
-);
-$color-text-dark: scale-color(
-    $color-primary,
-    $lightness: -80%,
-    $saturation: -80%
-);
-$color-text-lighter: scale-color(
-    $color-primary,
-    $lightness: -10%,
-    $saturation: -80%
-);
-$color-text-light: scale-color(
-    $color-primary,
-    $lightness: 30%,
-    $saturation: -80%
-);
 
-$color-element-text: $color-text;
+$color-label: #c2c2c2;
+$color-label-light: scale-color($color-label, $lightness: 25%);
+$color-label-dark: scale-color($color-label, $lightness: -25%);
+
+$color-placeholder: $color-label-light;
+
+$color-element-text: $color-black;
 $color-element-background: #eeeeee;
 
-$color-border: scale-color($color-primary, $lightness: 50%, $saturation: -80%);
-$color-border-light: scale-color(
-    $color-primary,
-    $lightness: -40%,
-    $saturation: -80%
-);
+// $color-border: #c2c2c2;
+$color-border: scale-color($color-label, $lightness: 25%);
+$color-border-hover: scale-color($color-border, $lightness: -15%);
 
 $color-primary-gradient: linear-gradient(
     90deg,
@@ -70,6 +52,8 @@ $colors: (
     warning: $color-warning,
     info: $color-info,
 );
+
+$element-border-radius: 0.25rem;
 
 // Sizes
 $sizes: (

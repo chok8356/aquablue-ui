@@ -102,7 +102,6 @@
             <div class="gutter-3">
                 <aq-radio-group v-model="group1"
                     :options="['Red', 'Blue', 'Green']">
-                    Favourite Colours
                 </aq-radio-group>
             </div>
             <div>
